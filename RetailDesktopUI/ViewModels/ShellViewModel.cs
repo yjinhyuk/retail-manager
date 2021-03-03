@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace RetailDesktopUI.ViewModels
 {
-    public class ShellViewModel
+    public class ShellViewModel : Conductor<object>
     {
-        private ICalculations _calculations;
+        private LoginViewModel _loginVM;
 
-        public ShellViewModel(ICalculations calculations)
+        public ShellViewModel(LoginViewModel loginVM)
         {
-            _calculations = calculations;
+            _loginVM = loginVM;
+            ActivateItem(_loginVM);
         }
     }
 }
